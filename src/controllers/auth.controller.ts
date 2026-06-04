@@ -13,13 +13,15 @@ export const signup = async (req: Request, res: Response) => {
     const result = await signupService(validatedData);
 
     res.status(201).json({
-      success: true,
+  traceId: res.locals.traceId,
+  success: true,
       message: "Signup successful",
       data: result
     });
   } catch (error: any) {
     res.status(400).json({
-      success: false,
+  traceId: res.locals.traceId,
+  success: false,
       message: error.message || "Something went wrong"
     });
   }
@@ -35,8 +37,9 @@ export const login = async (req: Request, res: Response) => {
       validatedData.password
     );
 
-    res.status(200).json({
-      success: true,
+    res.status(201).json({
+  traceId: res.locals.traceId,
+  success: true,
       message: "Login successful",
       data: result
     });
@@ -44,7 +47,8 @@ export const login = async (req: Request, res: Response) => {
   } catch (error: any) {
 
     res.status(400).json({
-      success: false,
+  traceId: res.locals.traceId,
+  success: false,
       message: error.message || "Something went wrong"
     });
 
