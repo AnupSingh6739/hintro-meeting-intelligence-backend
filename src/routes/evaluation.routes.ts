@@ -23,6 +23,17 @@ router.get("/", (req, res) => {
 
     data: {
 
+      candidateName: "Anup Singh",
+
+repositoryUrl:
+  "https://github.com/AnupSingh6739/hintro-meeting-intelligence-backend",
+
+deployedUrl:
+  "https://hintro-meeting-intelligence-backend.onrender.com",
+
+externalIntegration:
+  "Telegram Bot API",
+
       project:
         "Hintro Meeting Intelligence Backend",
 
