@@ -122,3 +122,15 @@ https://hintro-meeting-intelligence-backend.onrender.com
 Swagger Docs:
 
 https://hintro-meeting-intelligence-backend.onrender.com/api-docs
+
+## Live Deployment
+
+https://hintro-meeting-intelligence-backend.onrender.com
+
+## Swagger Docs
+
+https://hintro-meeting-intelligence-backend.onrender.com/api-docs
+
+## Evaluation Endpoint
+
+https://hintro-meeting-intelligence-backend.onrender.com/api/evaluation
