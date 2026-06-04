@@ -16,10 +16,10 @@ const options = {
     },
 
     servers: [
-      {
-        url: "http://localhost:3000"
-      }
-    ],
+  {
+    url: "https://hintro-meeting-intelligence-backend.onrender.com"
+  }
+],
 
     components: {
 
