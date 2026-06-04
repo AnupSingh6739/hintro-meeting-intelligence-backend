@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  meetings  Meeting[]
+  createdAt DateTime @default(now())
+}
+
+model Meeting {
+  id           String              @id @default(cuid())
+  title        String
+  participants String[]
+  meetingDate  DateTime
+  createdBy    String
+
+  user         User               @relation(fields: [createdBy], references: [id])
+  transcripts  TranscriptSegment[]
+  actionItems  ActionItem[]
+
+  createdAt DateTime @default(now())
+}
+
+model TranscriptSegment {
+  id        String  @id @default(cuid())
+  meetingId String
+  timestamp String
+  speaker   String
+  text      String
+
+  meeting Meeting @relation(fields: [meetingId], references: [id])
+}
+
+enum ActionItemStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+model ActionItem {
+  id         String           @id @default(cuid())
+  meetingId  String
+  task       String
+  assignee   String
+  dueDate    DateTime
+  status     ActionItemStatus @default(PENDING)
+
+  meeting Meeting @relation(fields: [meetingId], references: [id])
+
+  createdAt DateTime @default(now())
+}
